@@ -10,13 +10,13 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 RM := rm -rf
 
-NAME := moar_brainz
+NAME := harlFilter
 
 VAL := valgrind --leak-check=full --track-origins=yes
 
-SRC := main.cpp Zombie.cpp zombieHorde.cpp
+SRC := main.cpp Harl.cpp
 
-INC := Zombie.hpp
+INC := Harl.hpp
 
 OBJ := $(SRC:.cpp=.o)
 

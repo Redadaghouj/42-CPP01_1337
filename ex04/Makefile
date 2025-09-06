@@ -10,7 +10,7 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 RM := rm -rf
 
-NAME := Sed_is_for_losers
+NAME := sed_is_for_losers
 
 SRC := main.cpp File.cpp
 

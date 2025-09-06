@@ -10,7 +10,7 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 RM := rm -rf
 
-NAME := Harl1
+NAME := harl1
 
 VAL := valgrind --leak-check=full --track-origins=yes
 

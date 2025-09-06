@@ -10,7 +10,7 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 RM := rm -rf
 
-NAME := Unnecessary_violence
+NAME := unnecessary_violence
 
 VAL := valgrind --leak-check=full --track-origins=yes
 

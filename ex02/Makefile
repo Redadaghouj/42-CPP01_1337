@@ -10,7 +10,7 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 RM := rm -rf
 
-NAME := Hi_this_is_brain
+NAME := hi_this_is_brain
 
 VAL := valgrind --leak-check=full --track-origins=yes
 

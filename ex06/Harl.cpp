@@ -1,7 +1,7 @@
 #include <iostream>
-#include "Harl1.hpp"
+#include "Harl.hpp"
 
-void Harl1::_debug()
+void Harl::_debug()
 {
     std::cout
 	<< "[ DEBUG ]\n"
@@ -10,7 +10,7 @@ void Harl1::_debug()
 	<< std::endl;
 }
 
-void Harl1::_info()
+void Harl::_info()
 {
     std::cout
 	<< "[ INFO ]\n"
@@ -20,7 +20,7 @@ void Harl1::_info()
 	<< std::endl;
 }
 
-void Harl1::_warning()
+void Harl::_warning()
 {
     std::cout
 	<< "[ WARNING ]\n"
@@ -29,7 +29,7 @@ void Harl1::_warning()
     << std::endl;
 }
 
-void Harl1::_error()
+void Harl::_error()
 {
     std::cout
 	<< "[ ERROR ]\n"
@@ -37,27 +37,36 @@ void Harl1::_error()
     << std::endl;
 }
 
-void Harl1::complain(std::string level)
+void Harl::complain(std::string level)
 {
 	const int N = 4;
+	int index;
 
 	LevelMapping levels[N] = {
-		{"DEBUG", &Harl1::_debug},
-		{"INFO", &Harl1::_info},
-		{"WARNING", &Harl1::_warning},
-		{"ERROR", &Harl1::_error},
+		{"DEBUG", &Harl::_debug},
+		{"INFO", &Harl::_info},
+		{"WARNING", &Harl::_warning},
+		{"ERROR", &Harl::_error},
 	};
-
-	for (int i = 0; i < N; i++)
+	for (index = 0; index < N; index++)
 	{
-		if (levels[i].level == level)
-		{
-			(this->*levels[i].method)();
-			return ;
-		}
+		if (levels[index].level == level)
+			break ;
 	}
-	std::cout 
-    << "[ *IMAGINARY* LEVEL ]\n"
-	<< "Harl keeps complaining, but now it’s about you.\n" 
-    << std::endl;
+	switch (index) {
+		case 0:
+			(this->*levels[0].method)();
+			[[fallthrough]];
+		case 1:
+			(this->*levels[1].method)();
+			[[fallthrough]];
+		case 2:
+			(this->*levels[2].method)();
+			[[fallthrough]];
+		case 3:
+			(this->*levels[3].method)();
+			break ;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
 }
