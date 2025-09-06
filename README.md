@@ -9,7 +9,7 @@
 
 ## 📜 Project Overview
 
-This project builds on the fundamentals of C++, focusing on memory allocation, pointers, and references. The exercises are designed to help you understand how to manage memory on both the stack and the heap, as well as the important differences between using pointers and references in C++. Your code will adhere to the C++98 standard.
+This project builds on the fundamentals of C++, focusing on memory allocation, pointers, and references. The exercises are designed to help you understand how to manage memory on both the stack and the heap, as well as the important differences between using pointers and references in C++.
 
 > ⚠️ All code must follow the **C++98 standard**.
 
