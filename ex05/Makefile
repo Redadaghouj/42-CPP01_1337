@@ -10,11 +10,13 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 RM := rm -rf
 
-NAME := Sed_is_for_losers
+NAME := Harl1
 
-SRC := main.cpp File.cpp
+VAL := valgrind --leak-check=full --track-origins=yes
 
-INC := File.hpp
+SRC := main.cpp Harl1.cpp
+
+INC := Harl1.hpp
 
 OBJ := $(SRC:.cpp=.o)
 
@@ -28,6 +30,11 @@ $(NAME): $(OBJ)
 %.o: %.cpp $(INC)
 	@printf "$(YELLOW)  Compiling $<...$(RESET)\n"
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
+
+valgrind: $(NAME)
+	@printf "$(GREEN)  Execute with VALGRIND$(RESET)\n"
+	@$(VAL) ./$(NAME)
+	@make clean
 
 clean:
 	@printf "$(RED)  Cleaning object files...$(RESET)\n"

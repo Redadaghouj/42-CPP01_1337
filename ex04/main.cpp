@@ -1,23 +1,17 @@
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "File.hpp"
+#include <cstdlib>
+#include <iostream>
 
-int main()
+
+int main(int argc, char **argv)
 {
+	if (argc != 4)
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
+		std::cerr << "Usage: ./Sed_is_for_losers /filename s1 s2" << std::endl;
+		return (EXIT_FAILURE);
 	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-	return 0;
+	File sedJob(argv[1], argv[2], argv[3]);
+	if (!sedJob.replaceKeyWord())
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
