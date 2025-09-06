@@ -10,11 +10,11 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 RM := rm -rf
 
-NAME := Zombie
+NAME := Moar_brainz
 
 VAL := valgrind --leak-check=full --track-origins=yes
 
-SRC := main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC := main.cpp Zombie.cpp zombieHorde.cpp
 
 INC := Zombie.hpp
 
@@ -34,6 +34,7 @@ $(NAME): $(OBJ)
 valgrind: $(NAME)
 	@printf "$(GREEN)  Execute with VALGRIND$(RESET)\n"
 	@$(VAL) ./$(NAME)
+	@make clean
 
 clean:
 	@printf "$(RED)  Cleaning object files...$(RESET)\n"

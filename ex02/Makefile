@@ -10,13 +10,11 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 RM := rm -rf
 
-NAME := Zombie
+NAME := Hi_this_is_brain
 
 VAL := valgrind --leak-check=full --track-origins=yes
 
-SRC := main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
-
-INC := Zombie.hpp
+SRC := main.cpp
 
 OBJ := $(SRC:.cpp=.o)
 
@@ -27,13 +25,14 @@ $(NAME): $(OBJ)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@printf "$(GREEN)  Successfully built $(NAME)$(RESET)\n"
 
-%.o: %.cpp $(INC)
+%.o: %.cpp
 	@printf "$(YELLOW)  Compiling $<...$(RESET)\n"
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 valgrind: $(NAME)
 	@printf "$(GREEN)  Execute with VALGRIND$(RESET)\n"
 	@$(VAL) ./$(NAME)
+	@make clean
 
 clean:
 	@printf "$(RED)  Cleaning object files...$(RESET)\n"
