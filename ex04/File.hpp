@@ -1,3 +1,6 @@
+#ifndef FILE_HPP
+# define FILE_HPP
+
 #include <fstream>
 #include <string>
 
@@ -16,3 +19,5 @@ class File
 		bool openOutFile(std::ofstream &outFile);
 		bool replaceKeyWord();
 };
+
+#endif

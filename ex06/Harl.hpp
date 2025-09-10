@@ -1,3 +1,6 @@
+#ifndef HARL_HPP
+# define HARL_HPP
+
 #include <string>
 
 class Harl
@@ -19,3 +22,5 @@ typedef struct LevelMapping
 	std::string level;
 	Handler method;
 } LevelMapping;
+
+#endif
